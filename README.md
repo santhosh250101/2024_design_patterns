@@ -58,33 +58,3 @@ Here's a breakdown of some common design patterns in Java:
 * Example: Implementing a common workflow with variations in specific steps.
 * **Visitor:** Represents an operation to be performed on the elements of an object structure.
 * Example: Implementing different actions on a tree structure, like printing or counting nodes.
-
-**Learning Resources:**
-
-* **Head First Design Patterns:** A fun and engaging book that introduces design patterns.
-* **Design Patterns: Elements of Reusable Object-Oriented Software:** The classic book on design patterns.
-* **Gamma, Helm, Johnson, and Vlissides (Gang of Four):** The authors of the classic book "Design Patterns: Elements of Reusable Object-Oriented Software".
-* **TutorialsPoint:** Provides a comprehensive guide to design patterns with Java code examples.
-* **Java Design Patterns Tutorials:** A series of tutorials explaining different design patterns in Java.
-
-**Example: Implementing a Singleton Pattern in Java:**
-
-```java
-public class Singleton {
-
-private static Singleton instance;
-
-private Singleton() {}
-
-public static Singleton getInstance() {
-if (instance == null) {
-instance = new Singleton();
-}
-return instance;
-}
-
-// ... other methods ...
-}
-```
-
-**Note:** This is just a basic introduction to design patterns in Java. There are many more patterns available, each with its own advantages and disadvantages. The best way to learn design patterns is to practice implementing them in your own code.
