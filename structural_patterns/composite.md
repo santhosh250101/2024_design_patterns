@@ -1,24 +1,27 @@
-Composit Design Pattern in Java: Uniting the Individual and the Collective
-Introduction
+# Composite Design Pattern in Java: Uniting the Individual and the Collective
+## Introduction
 
-Imagine building a complex object structure, like a hierarchical file system, where you have individual files and directories containing other files and directories. How would you represent this structure effectively and handle operations on it uniformly, whether it's a single file or an entire directory? This is where the Composite Design Pattern comes to the rescue.
+## Imagine building a complex object structure, like a hierarchical file system, where you have individual files and directories containing other files and directories. How would you represent this structure effectively and handle operations on it uniformly, whether it's a single file or an entire directory? This is where the Composite Design Pattern comes to the rescue.
 
-What is the Composite Design Pattern?
+# What is the Composite Design Pattern?
 
-The Composite design pattern allows you to represent a hierarchical part-whole relationship where individual objects (leaf nodes) and composite objects (branches) can be treated in a uniform way. This eliminates the need for separate handling of individual and complex structures, making your code more cohesive and easier to manage.
+- The Composite design pattern allows you to represent a hierarchical part-whole relationship where individual objects (leaf nodes) and composite objects (branches) can be treated in a uniform way. This eliminates the 
+  need for separate handling of individual and complex structures, making your code more cohesive and easier to manage.
 
-Structure of the Pattern
+- Structure of the Pattern
 
-Component: The interface that defines common operations for both leaf and composite objects.
+    - Component: The interface that defines common operations for both leaf and composite objects.
 
-Leaf: Concrete objects representing the basic elements in the hierarchy, implementing the Component interface.
+    - Leaf: Concrete objects representing the basic elements in the hierarchy, implementing the Component interface.
 
-Composite: Objects that hold references to other components, also implementing the Component interface. It allows operations on individual elements to be delegated to the entire hierarchy.
+    - Composite: Objects that hold references to other components, also implementing the Component interface. It allows operations on individual elements to be delegated to the entire hierarchy.
 
-Illustrative Example
+# Illustrative Example
 
 Let's build a file system structure using the Composite Pattern in Java:
 
+
+```java
 interface FileSystemItem {
     void display(); // Common operation to display content
     String getName(); 
@@ -26,24 +29,23 @@ interface FileSystemItem {
 
 class File implements FileSystemItem {
     private String name;
-
     public File(String name) {
         this.name = name;
     }
-
     @Override
     public void display() {
         System.out.println("File: " + name);
     }
-
     @Override
     public String getName() {
         return name;
     }
 }
 
-class Directory implements FileSystemItem {
+ class Directory implements FileSystemItem {
+
     private String name;
+    
     private List<FileSystemItem> items = new ArrayList<>();
 
     public Directory(String name) {
@@ -71,6 +73,9 @@ class Directory implements FileSystemItem {
         return name;
     }
 }
+
+```
+
 In this example:
 
 FileSystemItem is the component interface, defining display and getName operations.
@@ -80,6 +85,7 @@ Using the Pattern
 
 Now let's put it all together to build a simple file system:
 
+```java
 public class FileSystemDemo {
     public static void main(String[] args) {
         Directory root = new Directory("Root");
@@ -97,6 +103,7 @@ public class FileSystemDemo {
         root.display(); // Outputs the complete file system structure
     }
 }
+```
 This example demonstrates the key advantage of Composite Pattern: treating individual files (file1, file2, file3) and the entire directory (subdir) in the same way through the display() operation.
 
 Benefits of the Composite Design Pattern
